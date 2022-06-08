@@ -16,7 +16,7 @@ const Form:FC = () => {
             <input onChange={(e) => {
                 setWallet(e.target.value)
             }} type="text" name={'wallet'} placeholder={'Wallet key'} value={wallet}/>
-            <button>Search</button>
+            <button onClick={()=>{dispatch(getNftsMetadata({walletAddress:wallet}))}} >Search</button>
             {nfts && (nfts.map((nft) => (<div key={nft.id.tokenID}>
                     <div >
                         {nft.metadata.image.startsWith("ipfs") ? <img
